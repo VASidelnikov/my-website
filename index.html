@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Мультимедійна сторінка</title>
+    <style>
+        body {
+            background-color: #98FB98; /* Салатовий фон */
+            font-family: 'Segoe UI', Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 25px;
+            border-bottom: 4px solid #4a6fa5;
+            position: relative;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 30px;
+            background: #4a6fa5;
+            border-radius: 50%;
+            border: 4px solid white;
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 2.8em;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.2em;
+            color: #4a6fa5;
+            font-style: italic;
+            margin-top: 10px;
+        }
+
+        .media-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .media-card {
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .media-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #4a6fa5, #98FB98, #4a6fa5);
+        }
+
+        .media-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .media-card:nth-child(1) {
+            background: linear-gradient(135deg, #FFB6C1, #FFC0CB);
+            border: 2px solid #FF99AA;
+        }
+
+        .media-card:nth-child(2) {
+            background: linear-gradient(135deg, #D8BFD8, #E6E6FA);
+            border: 2px solid #C8A2C8;
+        }
+
+        .media-card:nth-child(3) {
+            background: linear-gradient(135deg, #87CEEB, #ADD8E6);
+            border: 2px solid #5F9EA0;
+        }
+
+        .media-card:nth-child(4) {
+            background: linear-gradient(135deg, #FFDAB9, #FFE4B5);
+            border: 2px solid #DEB887;
+        }
+
+        .media-title {
+            color: #2c3e50;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            text-align: center;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .media-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: #4a6fa5;
+            border-radius: 2px;
+        }
+
+        iframe, video, audio {
+            display: block;
+            margin: 20px auto;
+            border-radius: 12px;
+            border: 4px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+
+        iframe:hover, video:hover, audio:hover {
+            transform: scale(1.02);
+        }
+
+        audio {
+            width: 100%;
+            max-width: 400px;
+            height: 40px;
+        }
+
+        .video-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: center;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .media-card {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .media-card:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+        .media-card:nth-child(3) {
+            animation-delay: 1s;
+        }
+        .media-card:nth-child(4) {
+            animation-delay: 1.5s;
+        }
+
+        @media (max-width: 768px) {
+            .media-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2.2em;
+            }
+            
+            .media-card {
+                animation: none;
+            }
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px dashed #4a6fa5;
+            color: #4a6fa5;
+            font-size: 1.1em;
+        }
+
+        .footer i {
+            font-style: normal;
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Моє захоплення — природа</h1>
+            <p>Таня Журко</p>
+        </header>
+
+        <div class="media-section">
+            <div class="media-card">
+                <h2 class="media-title">Біле щастя на чотирьох лапках</h2>
+                <div class="video-container">
+                    <video width="320" height="240" controls>
+                        <source src="E:\Таня\11\Урок №18\video\2.mp4" type="video/mp4">
+                        <source src="video/2.mp4" type="video/mp4">
+                        Ваш браузер не підтримує даний відео-формат
+                    </video>
+                </div>
+            </div>
+
+            <div class="media-card">
+                <h2 class="media-title">Пташиний рай</h2>
+                <audio controls>
+                    <source src="E:\Таня\11\Урок №18\audio\2.mp3" type="audio/mpeg">
+                    <source src="audio/2.mp3" type="audio/mpeg">
+                    Ваш браузер не підтримує даний аудіо-формат
+                </audio>
+            </div>
+        </div>
+
+        <div class="media-section">
+            <div class="media-card">
+                <h2 class="media-title">Світ тварин</h2>
+                <div class="video-container">
+                    <video width="320" height="240" controls>
+                        <source src="E:\Таня\11\Урок №18\video\1.mp4" type="video/mp4">
+                        <source src="video/1.mp4" type="video/mp4">
+                        Ваш браузер не підтримує даний відео-формат
+                    </video>
+                </div>
+            </div>
+
+            <div class="media-card">
+                <h2 class="media-title">Чарівні квіти</h2>
+                <div class="video-container">
+                    <video width="320" height="240" autoplay muted loop>
+                        <source src="E:\Таня\11\Урок №18\video\3.mp4" type="video/mp4">
+                        <source src="video/3.mp4" type="video/mp4">
+                        Ваш браузер не підтримує даний відео-формат
+                    </video>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <i>❤</i> Природа - найкращий художник <i>❤</i>
+        </div>
+    </div>
+</body>
+</html>
